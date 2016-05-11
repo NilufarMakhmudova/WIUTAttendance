@@ -1,0 +1,1608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AttendanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="SeminarID" />
+            <PropertyRef Name="TutorID" />
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="TeachingWeek" />
+          </Key>
+          <Property Name="SeminarID" Type="int" Nullable="false" />
+          <Property Name="TutorID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeachingWeek" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Rescheduled" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CourseRegistration">
+          <Key>
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="StartTimeID" />
+          </Key>
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="StartTimeID" Type="int" Nullable="false" />
+          <Property Name="EndTimeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupAllocation">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="TimeID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="TimeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupModules">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="ModuelD" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TimeID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="Level" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LevelProgression">
+          <Key>
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="LevelNumber" />
+            <PropertyRef Name="TimeID" />
+          </Key>
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="LevelNumber" Type="int" Nullable="false" />
+          <Property Name="TimeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SRSCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Credit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModuleRegistration">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="TimeID" />
+          </Key>
+          <Property Name="ModuleID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="TimeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModuleTutors">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+            <PropertyRef Name="TutorID" />
+            <PropertyRef Name="TimeID" />
+          </Key>
+          <Property Name="ModuleID" Type="int" Nullable="false" />
+          <Property Name="TutorID" Type="int" Nullable="false" />
+          <Property Name="TimeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModuleType">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="ModuleID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Level" Type="int" />
+          <Property Name="DeliveredPeriod" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Seminar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ModuleID" Type="int" Nullable="false" />
+          <Property Name="TimeID" Type="int" Nullable="false" />
+          <Property Name="TutorID" Type="int" Nullable="false" />
+          <Property Name="DayOfWeek" Type="nvarchar" MaxLength="10" />
+          <Property Name="StartTime" Type="nvarchar" MaxLength="5" />
+          <Property Name="Building" Type="nvarchar" MaxLength="50" />
+          <Property Name="Room" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SeminarGroups">
+          <Key>
+            <PropertyRef Name="SeminarID" />
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="SeminarID" Type="int" Nullable="false" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SeminarReschedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeminarID" Type="int" Nullable="false" />
+          <Property Name="TeachingWeek" Type="int" Nullable="false" />
+          <Property Name="FromDate" Type="date" />
+          <Property Name="FromTime" Type="time" Precision="7" />
+          <Property Name="ToDate" Type="date" />
+          <Property Name="ToTime" Type="time" Precision="7" />
+          <Property Name="ToBuilding" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToRoom" Type="nvarchar" MaxLength="50" />
+          <Property Name="RescheduleDate" Type="date" />
+          <Property Name="RescheduleReason" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailPrefix" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Time">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AcademicYear" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Period" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tutor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailPrefix" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Attendance_Seminar">
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seminar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="SeminarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendance_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendance_Tutor">
+          <End Role="Tutor" Type="Self.Tutor" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tutor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="TutorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseRegistration_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="CourseRegistration" Type="Self.CourseRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseRegistration">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseRegistration_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="CourseRegistration" Type="Self.CourseRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseRegistration">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseRegistration_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="CourseRegistration" Type="Self.CourseRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseRegistration">
+              <PropertyRef Name="StartTimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseRegistration_Time1">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="CourseRegistration" Type="Self.CourseRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseRegistration">
+              <PropertyRef Name="EndTimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupAllocation_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="GroupAllocation" Type="Self.GroupAllocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupAllocation">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupAllocation_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="GroupAllocation" Type="Self.GroupAllocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupAllocation">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupAllocation_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="GroupAllocation" Type="Self.GroupAllocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupAllocation">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupModules_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="GroupModules" Type="Self.GroupModules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupModules">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupModules_Module">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="GroupModules" Type="Self.GroupModules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupModules">
+              <PropertyRef Name="ModuelD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LevelProgression_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="LevelProgression" Type="Self.LevelProgression" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LevelProgression">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LevelProgression_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="LevelProgression" Type="Self.LevelProgression" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LevelProgression">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleRegistration_Module">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="ModuleRegistration" Type="Self.ModuleRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleRegistration">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleRegistration_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="ModuleRegistration" Type="Self.ModuleRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleRegistration">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleRegistration_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="ModuleRegistration" Type="Self.ModuleRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleRegistration">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleTutors_Module">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="ModuleTutors" Type="Self.ModuleTutors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleTutors">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleTutors_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="ModuleTutors" Type="Self.ModuleTutors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleTutors">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleTutors_Tutor">
+          <End Role="Tutor" Type="Self.Tutor" Multiplicity="1" />
+          <End Role="ModuleTutors" Type="Self.ModuleTutors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tutor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleTutors">
+              <PropertyRef Name="TutorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleType_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="ModuleType" Type="Self.ModuleType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleType">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleType_Module">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="ModuleType" Type="Self.ModuleType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleType">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seminar_Module">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Seminar">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seminar_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Seminar">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seminar_Tutor">
+          <End Role="Tutor" Type="Self.Tutor" Multiplicity="1" />
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tutor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Seminar">
+              <PropertyRef Name="TutorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeminarGroups_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="SeminarGroups" Type="Self.SeminarGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SeminarGroups">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeminarGroups_Seminar">
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="1" />
+          <End Role="SeminarGroups" Type="Self.SeminarGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seminar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SeminarGroups">
+              <PropertyRef Name="SeminarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeminarReschedule_Seminar">
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="1" />
+          <End Role="SeminarReschedule" Type="Self.SeminarReschedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seminar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SeminarReschedule">
+              <PropertyRef Name="SeminarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AttendanceModelStoreContainer">
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseRegistration" EntityType="Self.CourseRegistration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupAllocation" EntityType="Self.GroupAllocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupModules" EntityType="Self.GroupModules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LevelProgression" EntityType="Self.LevelProgression" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModuleRegistration" EntityType="Self.ModuleRegistration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModuleTutors" EntityType="Self.ModuleTutors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModuleType" EntityType="Self.ModuleType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seminar" EntityType="Self.Seminar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeminarGroups" EntityType="Self.SeminarGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeminarReschedule" EntityType="Self.SeminarReschedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Time" EntityType="Self.Time" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tutor" EntityType="Self.Tutor" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Attendance_Seminar" Association="Self.FK_Attendance_Seminar">
+            <End Role="Seminar" EntitySet="Seminar" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendance_Student" Association="Self.FK_Attendance_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendance_Tutor" Association="Self.FK_Attendance_Tutor">
+            <End Role="Tutor" EntitySet="Tutor" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseRegistration_Course" Association="Self.FK_CourseRegistration_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="CourseRegistration" EntitySet="CourseRegistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseRegistration_Student" Association="Self.FK_CourseRegistration_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="CourseRegistration" EntitySet="CourseRegistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseRegistration_Time" Association="Self.FK_CourseRegistration_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="CourseRegistration" EntitySet="CourseRegistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseRegistration_Time1" Association="Self.FK_CourseRegistration_Time1">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="CourseRegistration" EntitySet="CourseRegistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupAllocation_Groups" Association="Self.FK_GroupAllocation_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupAllocation" EntitySet="GroupAllocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupAllocation_Student" Association="Self.FK_GroupAllocation_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="GroupAllocation" EntitySet="GroupAllocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupAllocation_Time" Association="Self.FK_GroupAllocation_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="GroupAllocation" EntitySet="GroupAllocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupModules_Groups" Association="Self.FK_GroupModules_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupModules" EntitySet="GroupModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupModules_Module" Association="Self.FK_GroupModules_Module">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="GroupModules" EntitySet="GroupModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Course" Association="Self.FK_Groups_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Time" Association="Self.FK_Groups_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LevelProgression_Student" Association="Self.FK_LevelProgression_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="LevelProgression" EntitySet="LevelProgression" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LevelProgression_Time" Association="Self.FK_LevelProgression_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="LevelProgression" EntitySet="LevelProgression" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleRegistration_Module" Association="Self.FK_ModuleRegistration_Module">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="ModuleRegistration" EntitySet="ModuleRegistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleRegistration_Student" Association="Self.FK_ModuleRegistration_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="ModuleRegistration" EntitySet="ModuleRegistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleRegistration_Time" Association="Self.FK_ModuleRegistration_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="ModuleRegistration" EntitySet="ModuleRegistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleTutors_Module" Association="Self.FK_ModuleTutors_Module">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="ModuleTutors" EntitySet="ModuleTutors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleTutors_Time" Association="Self.FK_ModuleTutors_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="ModuleTutors" EntitySet="ModuleTutors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleTutors_Tutor" Association="Self.FK_ModuleTutors_Tutor">
+            <End Role="Tutor" EntitySet="Tutor" />
+            <End Role="ModuleTutors" EntitySet="ModuleTutors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleType_Course" Association="Self.FK_ModuleType_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="ModuleType" EntitySet="ModuleType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleType_Module" Association="Self.FK_ModuleType_Module">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="ModuleType" EntitySet="ModuleType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seminar_Module" Association="Self.FK_Seminar_Module">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="Seminar" EntitySet="Seminar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seminar_Time" Association="Self.FK_Seminar_Time">
+            <End Role="Time" EntitySet="Time" />
+            <End Role="Seminar" EntitySet="Seminar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seminar_Tutor" Association="Self.FK_Seminar_Tutor">
+            <End Role="Tutor" EntitySet="Tutor" />
+            <End Role="Seminar" EntitySet="Seminar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeminarGroups_Groups" Association="Self.FK_SeminarGroups_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="SeminarGroups" EntitySet="SeminarGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeminarGroups_Seminar" Association="Self.FK_SeminarGroups_Seminar">
+            <End Role="Seminar" EntitySet="Seminar" />
+            <End Role="SeminarGroups" EntitySet="SeminarGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeminarReschedule_Seminar" Association="Self.FK_SeminarReschedule_Seminar">
+            <End Role="Seminar" EntitySet="Seminar" />
+            <End Role="SeminarReschedule" EntitySet="SeminarReschedule" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AttendanceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="SeminarID" />
+            <PropertyRef Name="TutorID" />
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="TeachingWeek" />
+          </Key>
+          <Property Name="SeminarID" Type="Int32" Nullable="false" />
+          <Property Name="TutorID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeachingWeek" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Rescheduled" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Seminar" Relationship="Self.FK_Attendance_Seminar" FromRole="Attendance" ToRole="Seminar" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Attendance_Student" FromRole="Attendance" ToRole="Student" />
+          <NavigationProperty Name="Tutor" Relationship="Self.FK_Attendance_Tutor" FromRole="Attendance" ToRole="Tutor" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CourseRegistrations" Relationship="Self.FK_CourseRegistration_Course" FromRole="Course" ToRole="CourseRegistration" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK_Groups_Course" FromRole="Course" ToRole="Groups" />
+          <NavigationProperty Name="ModuleTypes" Relationship="Self.FK_ModuleType_Course" FromRole="Course" ToRole="ModuleType" />
+        </EntityType>
+        <EntityType Name="CourseRegistration">
+          <Key>
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="StartTimeID" />
+          </Key>
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="StartTimeID" Type="Int32" Nullable="false" />
+          <Property Name="EndTimeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_CourseRegistration_Course" FromRole="CourseRegistration" ToRole="Course" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_CourseRegistration_Student" FromRole="CourseRegistration" ToRole="Student" />
+          <NavigationProperty Name="Time" Relationship="Self.FK_CourseRegistration_Time" FromRole="CourseRegistration" ToRole="Time" />
+          <NavigationProperty Name="Time1" Relationship="Self.FK_CourseRegistration_Time1" FromRole="CourseRegistration" ToRole="Time" />
+        </EntityType>
+        <EntityType Name="GroupAllocation">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="TimeID" />
+          </Key>
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="TimeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_GroupAllocation_Groups" FromRole="GroupAllocation" ToRole="Groups" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_GroupAllocation_Student" FromRole="GroupAllocation" ToRole="Student" />
+          <NavigationProperty Name="Time" Relationship="Self.FK_GroupAllocation_Time" FromRole="GroupAllocation" ToRole="Time" />
+        </EntityType>
+        <EntityType Name="GroupModule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="ModuelD" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_GroupModules_Groups" FromRole="GroupModules" ToRole="Groups" />
+          <NavigationProperty Name="Module" Relationship="Self.FK_GroupModules_Module" FromRole="GroupModules" ToRole="Module" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TimeID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Groups_Course" FromRole="Groups" ToRole="Course" />
+          <NavigationProperty Name="GroupAllocations" Relationship="Self.FK_GroupAllocation_Groups" FromRole="Groups" ToRole="GroupAllocation" />
+          <NavigationProperty Name="GroupModules" Relationship="Self.FK_GroupModules_Groups" FromRole="Groups" ToRole="GroupModules" />
+          <NavigationProperty Name="Time" Relationship="Self.FK_Groups_Time" FromRole="Groups" ToRole="Time" />
+          <NavigationProperty Name="Seminars" Relationship="Self.SeminarGroups" FromRole="Groups" ToRole="Seminar" />
+        </EntityType>
+        <EntityType Name="LevelProgression">
+          <Key>
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="LevelNumber" />
+            <PropertyRef Name="TimeID" />
+          </Key>
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="LevelNumber" Type="Int32" Nullable="false" />
+          <Property Name="TimeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_LevelProgression_Student" FromRole="LevelProgression" ToRole="Student" />
+          <NavigationProperty Name="Time" Relationship="Self.FK_LevelProgression_Time" FromRole="LevelProgression" ToRole="Time" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SRSCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Credit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GroupModules" Relationship="Self.FK_GroupModules_Module" FromRole="Module" ToRole="GroupModules" />
+          <NavigationProperty Name="ModuleRegistrations" Relationship="Self.FK_ModuleRegistration_Module" FromRole="Module" ToRole="ModuleRegistration" />
+          <NavigationProperty Name="ModuleTutors" Relationship="Self.FK_ModuleTutors_Module" FromRole="Module" ToRole="ModuleTutors" />
+          <NavigationProperty Name="ModuleTypes" Relationship="Self.FK_ModuleType_Module" FromRole="Module" ToRole="ModuleType" />
+          <NavigationProperty Name="Seminars" Relationship="Self.FK_Seminar_Module" FromRole="Module" ToRole="Seminar" />
+        </EntityType>
+        <EntityType Name="ModuleRegistration">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="TimeID" />
+          </Key>
+          <Property Name="ModuleID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="TimeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Module" Relationship="Self.FK_ModuleRegistration_Module" FromRole="ModuleRegistration" ToRole="Module" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_ModuleRegistration_Student" FromRole="ModuleRegistration" ToRole="Student" />
+          <NavigationProperty Name="Time" Relationship="Self.FK_ModuleRegistration_Time" FromRole="ModuleRegistration" ToRole="Time" />
+        </EntityType>
+        <EntityType Name="ModuleTutor">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+            <PropertyRef Name="TutorID" />
+            <PropertyRef Name="TimeID" />
+          </Key>
+          <Property Name="ModuleID" Type="Int32" Nullable="false" />
+          <Property Name="TutorID" Type="Int32" Nullable="false" />
+          <Property Name="TimeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Module" Relationship="Self.FK_ModuleTutors_Module" FromRole="ModuleTutors" ToRole="Module" />
+          <NavigationProperty Name="Time" Relationship="Self.FK_ModuleTutors_Time" FromRole="ModuleTutors" ToRole="Time" />
+          <NavigationProperty Name="Tutor" Relationship="Self.FK_ModuleTutors_Tutor" FromRole="ModuleTutors" ToRole="Tutor" />
+        </EntityType>
+        <EntityType Name="ModuleType">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+            <PropertyRef Name="CourseID" />
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="ModuleID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Level" Type="Int32" />
+          <Property Name="DeliveredPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_ModuleType_Course" FromRole="ModuleType" ToRole="Course" />
+          <NavigationProperty Name="Module" Relationship="Self.FK_ModuleType_Module" FromRole="ModuleType" ToRole="Module" />
+        </EntityType>
+        <EntityType Name="Seminar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleID" Type="Int32" Nullable="false" />
+          <Property Name="TimeID" Type="Int32" Nullable="false" />
+          <Property Name="TutorID" Type="Int32" Nullable="false" />
+          <Property Name="DayOfWeek" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="StartTime" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Building" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Room" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendance_Seminar" FromRole="Seminar" ToRole="Attendance" />
+          <NavigationProperty Name="Module" Relationship="Self.FK_Seminar_Module" FromRole="Seminar" ToRole="Module" />
+          <NavigationProperty Name="Time" Relationship="Self.FK_Seminar_Time" FromRole="Seminar" ToRole="Time" />
+          <NavigationProperty Name="Tutor" Relationship="Self.FK_Seminar_Tutor" FromRole="Seminar" ToRole="Tutor" />
+          <NavigationProperty Name="SeminarReschedules" Relationship="Self.FK_SeminarReschedule_Seminar" FromRole="Seminar" ToRole="SeminarReschedule" />
+          <NavigationProperty Name="Groups" Relationship="Self.SeminarGroups" FromRole="Seminar" ToRole="Groups" />
+        </EntityType>
+        <EntityType Name="SeminarReschedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeminarID" Type="Int32" Nullable="false" />
+          <Property Name="TeachingWeek" Type="Int32" Nullable="false" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="FromTime" Type="Time" Precision="7" />
+          <Property Name="ToDate" Type="DateTime" Precision="0" />
+          <Property Name="ToTime" Type="Time" Precision="7" />
+          <Property Name="ToBuilding" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToRoom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RescheduleDate" Type="DateTime" Precision="0" />
+          <Property Name="RescheduleReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Seminar" Relationship="Self.FK_SeminarReschedule_Seminar" FromRole="SeminarReschedule" ToRole="Seminar" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendance_Student" FromRole="Student" ToRole="Attendance" />
+          <NavigationProperty Name="CourseRegistrations" Relationship="Self.FK_CourseRegistration_Student" FromRole="Student" ToRole="CourseRegistration" />
+          <NavigationProperty Name="GroupAllocations" Relationship="Self.FK_GroupAllocation_Student" FromRole="Student" ToRole="GroupAllocation" />
+          <NavigationProperty Name="LevelProgressions" Relationship="Self.FK_LevelProgression_Student" FromRole="Student" ToRole="LevelProgression" />
+          <NavigationProperty Name="ModuleRegistrations" Relationship="Self.FK_ModuleRegistration_Student" FromRole="Student" ToRole="ModuleRegistration" />
+          <Property Name="EmailPrefix" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Time">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AcademicYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Period" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="CourseRegistrations" Relationship="Self.FK_CourseRegistration_Time" FromRole="Time" ToRole="CourseRegistration" />
+          <NavigationProperty Name="CourseRegistrations1" Relationship="Self.FK_CourseRegistration_Time1" FromRole="Time" ToRole="CourseRegistration" />
+          <NavigationProperty Name="GroupAllocations" Relationship="Self.FK_GroupAllocation_Time" FromRole="Time" ToRole="GroupAllocation" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK_Groups_Time" FromRole="Time" ToRole="Groups" />
+          <NavigationProperty Name="LevelProgressions" Relationship="Self.FK_LevelProgression_Time" FromRole="Time" ToRole="LevelProgression" />
+          <NavigationProperty Name="ModuleRegistrations" Relationship="Self.FK_ModuleRegistration_Time" FromRole="Time" ToRole="ModuleRegistration" />
+          <NavigationProperty Name="ModuleTutors" Relationship="Self.FK_ModuleTutors_Time" FromRole="Time" ToRole="ModuleTutors" />
+          <NavigationProperty Name="Seminars" Relationship="Self.FK_Seminar_Time" FromRole="Time" ToRole="Seminar" />
+        </EntityType>
+        <EntityType Name="Tutor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendance_Tutor" FromRole="Tutor" ToRole="Attendance" />
+          <NavigationProperty Name="ModuleTutors" Relationship="Self.FK_ModuleTutors_Tutor" FromRole="Tutor" ToRole="ModuleTutors" />
+          <NavigationProperty Name="Seminars" Relationship="Self.FK_Seminar_Tutor" FromRole="Tutor" ToRole="Seminar" />
+          <Property Name="EmailPrefix" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Attendance_Seminar">
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seminar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="SeminarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendance_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendance_Tutor">
+          <End Role="Tutor" Type="Self.Tutor" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tutor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="TutorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseRegistration_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="CourseRegistration" Type="Self.CourseRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseRegistration">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleType_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="ModuleType" Type="Self.ModuleType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleType">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseRegistration_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="CourseRegistration" Type="Self.CourseRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseRegistration">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseRegistration_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="CourseRegistration" Type="Self.CourseRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseRegistration">
+              <PropertyRef Name="StartTimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseRegistration_Time1">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="CourseRegistration" Type="Self.CourseRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CourseRegistration">
+              <PropertyRef Name="EndTimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupAllocation_Groups">
+          <End Role="Groups" Type="Self.Group" Multiplicity="1" />
+          <End Role="GroupAllocation" Type="Self.GroupAllocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupAllocation">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupAllocation_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="GroupAllocation" Type="Self.GroupAllocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupAllocation">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupAllocation_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="GroupAllocation" Type="Self.GroupAllocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupAllocation">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupModules_Groups">
+          <End Role="Groups" Type="Self.Group" Multiplicity="1" />
+          <End Role="GroupModules" Type="Self.GroupModule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupModules">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupModules_Module">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="GroupModules" Type="Self.GroupModule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupModules">
+              <PropertyRef Name="ModuelD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LevelProgression_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="LevelProgression" Type="Self.LevelProgression" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LevelProgression">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LevelProgression_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="LevelProgression" Type="Self.LevelProgression" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LevelProgression">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleRegistration_Module">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="ModuleRegistration" Type="Self.ModuleRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleRegistration">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleTutors_Module">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="ModuleTutors" Type="Self.ModuleTutor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleTutors">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleType_Module">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="ModuleType" Type="Self.ModuleType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleType">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seminar_Module">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Seminar">
+              <PropertyRef Name="ModuleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleRegistration_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="ModuleRegistration" Type="Self.ModuleRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleRegistration">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleRegistration_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="ModuleRegistration" Type="Self.ModuleRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleRegistration">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleTutors_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="ModuleTutors" Type="Self.ModuleTutor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleTutors">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuleTutors_Tutor">
+          <End Role="Tutor" Type="Self.Tutor" Multiplicity="1" />
+          <End Role="ModuleTutors" Type="Self.ModuleTutor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tutor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ModuleTutors">
+              <PropertyRef Name="TutorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seminar_Time">
+          <End Role="Time" Type="Self.Time" Multiplicity="1" />
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Seminar">
+              <PropertyRef Name="TimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seminar_Tutor">
+          <End Role="Tutor" Type="Self.Tutor" Multiplicity="1" />
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tutor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Seminar">
+              <PropertyRef Name="TutorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SeminarReschedule_Seminar">
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="1" />
+          <End Role="SeminarReschedule" Type="Self.SeminarReschedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seminar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SeminarReschedule">
+              <PropertyRef Name="SeminarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SeminarGroups">
+          <End Role="Groups" Type="Self.Group" Multiplicity="*" />
+          <End Role="Seminar" Type="Self.Seminar" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="AttendanceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="CourseRegistrations" EntityType="Self.CourseRegistration" />
+          <EntitySet Name="GroupAllocations" EntityType="Self.GroupAllocation" />
+          <EntitySet Name="GroupModules" EntityType="Self.GroupModule" />
+          <EntitySet Name="Groups" EntityType="Self.Group" />
+          <EntitySet Name="LevelProgressions" EntityType="Self.LevelProgression" />
+          <EntitySet Name="Modules" EntityType="Self.Module" />
+          <EntitySet Name="ModuleRegistrations" EntityType="Self.ModuleRegistration" />
+          <EntitySet Name="ModuleTutors" EntityType="Self.ModuleTutor" />
+          <EntitySet Name="ModuleTypes" EntityType="Self.ModuleType" />
+          <EntitySet Name="Seminars" EntityType="Self.Seminar" />
+          <EntitySet Name="SeminarReschedules" EntityType="Self.SeminarReschedule" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Times" EntityType="Self.Time" />
+          <EntitySet Name="Tutors" EntityType="Self.Tutor" />
+          <AssociationSet Name="FK_Attendance_Seminar" Association="Self.FK_Attendance_Seminar">
+            <End Role="Seminar" EntitySet="Seminars" />
+            <End Role="Attendance" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendance_Student" Association="Self.FK_Attendance_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Attendance" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendance_Tutor" Association="Self.FK_Attendance_Tutor">
+            <End Role="Tutor" EntitySet="Tutors" />
+            <End Role="Attendance" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseRegistration_Course" Association="Self.FK_CourseRegistration_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="CourseRegistration" EntitySet="CourseRegistrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Course" Association="Self.FK_Groups_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleType_Course" Association="Self.FK_ModuleType_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="ModuleType" EntitySet="ModuleTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseRegistration_Student" Association="Self.FK_CourseRegistration_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="CourseRegistration" EntitySet="CourseRegistrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseRegistration_Time" Association="Self.FK_CourseRegistration_Time">
+            <End Role="Time" EntitySet="Times" />
+            <End Role="CourseRegistration" EntitySet="CourseRegistrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseRegistration_Time1" Association="Self.FK_CourseRegistration_Time1">
+            <End Role="Time" EntitySet="Times" />
+            <End Role="CourseRegistration" EntitySet="CourseRegistrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupAllocation_Groups" Association="Self.FK_GroupAllocation_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupAllocation" EntitySet="GroupAllocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupAllocation_Student" Association="Self.FK_GroupAllocation_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="GroupAllocation" EntitySet="GroupAllocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupAllocation_Time" Association="Self.FK_GroupAllocation_Time">
+            <End Role="Time" EntitySet="Times" />
+            <End Role="GroupAllocation" EntitySet="GroupAllocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupModules_Groups" Association="Self.FK_GroupModules_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupModules" EntitySet="GroupModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupModules_Module" Association="Self.FK_GroupModules_Module">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="GroupModules" EntitySet="GroupModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Time" Association="Self.FK_Groups_Time">
+            <End Role="Time" EntitySet="Times" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LevelProgression_Student" Association="Self.FK_LevelProgression_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="LevelProgression" EntitySet="LevelProgressions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LevelProgression_Time" Association="Self.FK_LevelProgression_Time">
+            <End Role="Time" EntitySet="Times" />
+            <End Role="LevelProgression" EntitySet="LevelProgressions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleRegistration_Module" Association="Self.FK_ModuleRegistration_Module">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="ModuleRegistration" EntitySet="ModuleRegistrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleTutors_Module" Association="Self.FK_ModuleTutors_Module">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="ModuleTutors" EntitySet="ModuleTutors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleType_Module" Association="Self.FK_ModuleType_Module">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="ModuleType" EntitySet="ModuleTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seminar_Module" Association="Self.FK_Seminar_Module">
+            <End Role="Module" EntitySet="Modules" />
+            <End Role="Seminar" EntitySet="Seminars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleRegistration_Student" Association="Self.FK_ModuleRegistration_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="ModuleRegistration" EntitySet="ModuleRegistrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleRegistration_Time" Association="Self.FK_ModuleRegistration_Time">
+            <End Role="Time" EntitySet="Times" />
+            <End Role="ModuleRegistration" EntitySet="ModuleRegistrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleTutors_Time" Association="Self.FK_ModuleTutors_Time">
+            <End Role="Time" EntitySet="Times" />
+            <End Role="ModuleTutors" EntitySet="ModuleTutors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuleTutors_Tutor" Association="Self.FK_ModuleTutors_Tutor">
+            <End Role="Tutor" EntitySet="Tutors" />
+            <End Role="ModuleTutors" EntitySet="ModuleTutors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seminar_Time" Association="Self.FK_Seminar_Time">
+            <End Role="Time" EntitySet="Times" />
+            <End Role="Seminar" EntitySet="Seminars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seminar_Tutor" Association="Self.FK_Seminar_Tutor">
+            <End Role="Tutor" EntitySet="Tutors" />
+            <End Role="Seminar" EntitySet="Seminars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SeminarReschedule_Seminar" Association="Self.FK_SeminarReschedule_Seminar">
+            <End Role="Seminar" EntitySet="Seminars" />
+            <End Role="SeminarReschedule" EntitySet="SeminarReschedules" />
+          </AssociationSet>
+          <AssociationSet Name="SeminarGroups" Association="Self.SeminarGroups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Seminar" EntitySet="Seminars" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AttendanceModelStoreContainer" CdmEntityContainer="AttendanceEntities">
+          <EntitySetMapping Name="Attendances">
+            <EntityTypeMapping TypeName="AttendanceModel.Attendance">
+              <MappingFragment StoreEntitySet="Attendance">
+                <ScalarProperty Name="SeminarID" ColumnName="SeminarID" />
+                <ScalarProperty Name="TutorID" ColumnName="TutorID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TeachingWeek" ColumnName="TeachingWeek" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Rescheduled" ColumnName="Rescheduled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="AttendanceModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseRegistrations">
+            <EntityTypeMapping TypeName="AttendanceModel.CourseRegistration">
+              <MappingFragment StoreEntitySet="CourseRegistration">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="StartTimeID" ColumnName="StartTimeID" />
+                <ScalarProperty Name="EndTimeID" ColumnName="EndTimeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupAllocations">
+            <EntityTypeMapping TypeName="AttendanceModel.GroupAllocation">
+              <MappingFragment StoreEntitySet="GroupAllocation">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="TimeID" ColumnName="TimeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupModules">
+            <EntityTypeMapping TypeName="AttendanceModel.GroupModule">
+              <MappingFragment StoreEntitySet="GroupModules">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="ModuelD" ColumnName="ModuelD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="AttendanceModel.Group">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TimeID" ColumnName="TimeID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LevelProgressions">
+            <EntityTypeMapping TypeName="AttendanceModel.LevelProgression">
+              <MappingFragment StoreEntitySet="LevelProgression">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="LevelNumber" ColumnName="LevelNumber" />
+                <ScalarProperty Name="TimeID" ColumnName="TimeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modules">
+            <EntityTypeMapping TypeName="AttendanceModel.Module">
+              <MappingFragment StoreEntitySet="Module">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SRSCode" ColumnName="SRSCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModuleRegistrations">
+            <EntityTypeMapping TypeName="AttendanceModel.ModuleRegistration">
+              <MappingFragment StoreEntitySet="ModuleRegistration">
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="TimeID" ColumnName="TimeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModuleTutors">
+            <EntityTypeMapping TypeName="AttendanceModel.ModuleTutor">
+              <MappingFragment StoreEntitySet="ModuleTutors">
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="TutorID" ColumnName="TutorID" />
+                <ScalarProperty Name="TimeID" ColumnName="TimeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModuleTypes">
+            <EntityTypeMapping TypeName="AttendanceModel.ModuleType">
+              <MappingFragment StoreEntitySet="ModuleType">
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="DeliveredPeriod" ColumnName="DeliveredPeriod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seminars">
+            <EntityTypeMapping TypeName="AttendanceModel.Seminar">
+              <MappingFragment StoreEntitySet="Seminar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="TimeID" ColumnName="TimeID" />
+                <ScalarProperty Name="TutorID" ColumnName="TutorID" />
+                <ScalarProperty Name="DayOfWeek" ColumnName="DayOfWeek" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="Room" ColumnName="Room" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeminarReschedules">
+            <EntityTypeMapping TypeName="AttendanceModel.SeminarReschedule">
+              <MappingFragment StoreEntitySet="SeminarReschedule">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SeminarID" ColumnName="SeminarID" />
+                <ScalarProperty Name="TeachingWeek" ColumnName="TeachingWeek" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="ToBuilding" ColumnName="ToBuilding" />
+                <ScalarProperty Name="ToRoom" ColumnName="ToRoom" />
+                <ScalarProperty Name="RescheduleDate" ColumnName="RescheduleDate" />
+                <ScalarProperty Name="RescheduleReason" ColumnName="RescheduleReason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="AttendanceModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="EmailPrefix" ColumnName="EmailPrefix" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Times">
+            <EntityTypeMapping TypeName="AttendanceModel.Time">
+              <MappingFragment StoreEntitySet="Time">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AcademicYear" ColumnName="AcademicYear" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tutors">
+            <EntityTypeMapping TypeName="AttendanceModel.Tutor">
+              <MappingFragment StoreEntitySet="Tutor">
+                <ScalarProperty Name="EmailPrefix" ColumnName="EmailPrefix" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="SeminarGroups" TypeName="AttendanceModel.SeminarGroups" StoreEntitySet="SeminarGroups">
+            <EndProperty Name="Groups">
+              <ScalarProperty Name="ID" ColumnName="GroupID" />
+            </EndProperty>
+            <EndProperty Name="Seminar">
+              <ScalarProperty Name="ID" ColumnName="SeminarID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

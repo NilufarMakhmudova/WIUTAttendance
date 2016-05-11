@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f2308a3efcce45448d520599da6444c3" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="AttendanceModel.Attendance" Width="1.5" PointX="10.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.Course" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.CourseRegistration" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.GroupAllocation" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.GroupModule" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.Group" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.LevelProgression" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.Module" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.ModuleRegistration" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.ModuleTutor" Width="1.5" PointX="6" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.ModuleType" Width="1.5" PointX="8.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.Seminar" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.SeminarReschedule" Width="1.5" PointX="10.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.Student" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.Time" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AttendanceModel.Tutor" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="AttendanceModel.FK_Attendance_Seminar" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_Attendance_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_Attendance_Tutor" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_CourseRegistration_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_Groups_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_ModuleType_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_CourseRegistration_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_CourseRegistration_Time" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_CourseRegistration_Time1" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_GroupAllocation_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_GroupAllocation_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_GroupAllocation_Time" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_GroupModules_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_GroupModules_Module" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_Groups_Time" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_LevelProgression_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_LevelProgression_Time" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_ModuleRegistration_Module" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_ModuleTutors_Module" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_ModuleType_Module" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_Seminar_Module" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_ModuleRegistration_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_ModuleRegistration_Time" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_ModuleTutors_Time" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_ModuleTutors_Tutor" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_Seminar_Time" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_Seminar_Tutor" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.FK_SeminarReschedule_Seminar" ManuallyRouted="false" />
+        <AssociationConnector Association="AttendanceModel.SeminarGroups" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

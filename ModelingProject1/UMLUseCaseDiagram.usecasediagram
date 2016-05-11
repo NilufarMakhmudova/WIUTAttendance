@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="34b08e24-0d06-4247-996f-736fd1802910" name="WIUT Attendance Monitoring" linkedPackageId="cfbd9c92-f038-4d98-ae58-96861c0717bd" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="51dd35c2-5979-4e5c-a4b6-9123add4bcd2" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="810a0662-660c-4080-bf78-b9b6814fff05" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="f5468845-6c5b-4a34-8411-83371a0c1509">
+          <propertyInstance Id="03538e03-1ab4-4703-9c76-e8734dabbaf6" name="BaseName">
+            <elementDefinition Id="956eef97-e0f0-4448-863a-4e738223f0b3" />
+          </propertyInstance>
+          <elementDefinition Id="53aea0fa-7bdb-4dde-baef-48acabd6516f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="830a2051-b469-49b8-a40f-e3f249c85198">
+          <propertyInstance Id="b2d19453-74d2-4af0-b3b2-f68ee1093c50" name="ClrAttributes">
+            <elementDefinition Id="d23d7b6c-e3be-476c-9a76-76611a109e97" />
+          </propertyInstance>
+          <elementDefinition Id="66912139-090c-4923-8cf6-67755f29247a" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="79f656d6-9dc3-4860-81d0-dc9cc7b45770">
+          <propertyInstance Id="32293694-9c24-4f68-9c63-9855de8ca091" name="Usings">
+            <elementDefinition Id="67b5a87f-441a-4400-8d98-10f919f9ea4e" />
+          </propertyInstance>
+          <elementDefinition Id="798a021c-3dbd-4125-9af4-bfb593a3e265" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="50eaeda4-8eea-46dd-a990-2217120bf6ab" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="7915c44e-edb7-41d7-8453-b7aea4f9510a" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="c9e2b7af-7abd-4feb-ba40-f4cc115d1a76">
+          <propertyInstance Id="705badea-ce00-4f22-bf33-7dc1e8bc0568" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="c1e47259-a026-4c20-8bab-1c5d2c1ecf14" />
+          </propertyInstance>
+          <elementDefinition Id="73988723-e2e5-4912-8b46-b8852ad19a46" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="4a3fe59e-6216-4997-804e-d7119dd860e9">
+          <propertyInstance Id="d1fd3693-00c7-4b7d-83b2-21e24d2308a4" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="9ae03f35-c072-4638-95e0-74f9c0d355ac" />
+          </propertyInstance>
+          <elementDefinition Id="d664df47-1469-403b-bb9c-07dc368308c2" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="555de101-f616-40d2-a283-3166f428cf5c">
+          <propertyInstance Id="aff3d900-dc20-436c-ab2b-1f617e326629" name="ProjectPath" value="ClassTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|EnumTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|InterfaceTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|StructTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj">
+            <elementDefinition Id="29512fb2-06aa-4161-ba32-9a0a25f3b584" />
+          </propertyInstance>
+          <elementDefinition Id="9a567b25-6520-4187-abe6-3aec99465019" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="3f9d2caa-ed54-470c-b432-ca397eab50f6">
+          <propertyInstance Id="47fbf9d7-be09-4199-b398-7174f1b82027" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="b029e853-5c1c-4eac-9624-00f55634e324" />
+          </propertyInstance>
+          <elementDefinition Id="d6f3e012-7849-466e-b3a9-df32164b3988" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="6dc3142f-ebd7-4eb6-9098-deb70e96d884">
+          <propertyInstance Id="9aa815f9-1acb-46ba-8af1-11c4132cd920" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="f2cf7934-6471-4974-8765-dc6c654082d4" />
+          </propertyInstance>
+          <elementDefinition Id="4f366be2-a1a0-4eec-aabf-3bcd81705a64" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="9dcc2963-ab52-41c7-905b-f79bdeb86166">
+          <propertyInstance Id="690bc150-3b34-4604-8389-96923573dfdd" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="f88465a6-5885-44bb-9bec-f5025c8562e2" />
+          </propertyInstance>
+          <elementDefinition Id="499d87a2-1aa1-44fc-9b04-17703cc02f4e" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="a9ffab83-50f1-4752-b00d-4ab95accc3cb">
+          <propertyInstance Id="a3086325-979f-4d97-a632-b384d928b7ad" name="Parameters">
+            <elementDefinition Id="dd6f9c23-5788-4b23-a349-266c3a0e398c" />
+          </propertyInstance>
+          <elementDefinition Id="fa42ed77-e0b1-4c80-a9c4-4e038022afb0" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="755f5511-e142-416d-906b-7bb54b4321ad">
+      <profileInstance Id="3bb3d059-16aa-43ac-b901-924cad8aa2d0" name="CSharpProfile">
+        <elementDefinition Id="b55fe82a-8573-49b7-9b5f-f0df015870aa" />
+      </profileInstance>
+      <elementDefinition Id="2ede2d84-6a2f-43fd-934b-7ca974a19853" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="00934bb8-c9bf-46fe-a8c0-5a4abaa68cac">
+      <profileInstance Id="e37f8b49-e7e3-4d75-b0d5-5b752fcdf849" name="TextTemplateBindings">
+        <elementDefinition Id="30d4b9dd-28ff-4406-b5a1-e290461ec074" />
+      </profileInstance>
+      <elementDefinition Id="2b4da7ca-041d-4ec7-b82a-b73302241fc2" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="f35410bf-62df-4625-9b81-06def4257524" name="Student" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4ea6987b-58fb-49ea-abd0-267538a7cb92" />
+        <targetEnds>
+          <association Id="a2fba74e-0fe0-4645-8c9d-b6145cb694bd" isDerived="false" sourceEndRoleName="Student" targetEndRoleName="Swipe NFC tag" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="0e1a8f31-bcf7-4176-93f5-2ae4174c375f" LastKnownName="Swipe NFC tag" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7b40cd58-cd0c-4e28-b89e-64e0a2ef8d28" name="Student" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b6f1aae0-961d-4a63-a5cb-566dd1b129b7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b0d86095-2fcc-4bff-b2ef-4ef47f8c894d" name="Swipe NFC tag" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="56ba8c1d-3f4f-4af0-b129-2c55e7e56380" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f2ecb45d-f1b6-4c1f-b8c2-afb51fc3bc67" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="2d558956-1d00-41d1-bcbb-02f5e7ae718a" name="Tutor" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b7b89008-de4b-4238-9c94-727d807b9ec8" />
+        <targetEnds>
+          <association Id="9522a793-f984-4d2a-a296-d4e76396341c" isDerived="false" sourceEndRoleName="Tutor" targetEndRoleName="UseCase1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="968fd36d-7c83-402f-9882-6ec1114aab2b" LastKnownName="Check attendance" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="393296d0-8156-45c4-b860-38022631efbf" name="Tutor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="119a2bcd-0d7a-4782-9d3c-15b335bb4e89" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b4971161-095d-4499-ba5a-b8ccbd52c8e6" name="UseCase1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5b43f138-011f-4e43-bebc-73a0e14770b4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="65658c0c-d629-44b7-8241-566e3240bc56" />
+          </association>
+          <association Id="4abea3c2-c194-4281-a566-9bf92f8434f7" isDerived="false" sourceEndRoleName="Tutor" targetEndRoleName="Reschedule seminar" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e8b8371e-0dc0-4379-84ad-d5609e4471ce" LastKnownName="Reschedule seminar" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4e5ca8e7-731b-4118-99d8-84b47517b7cb" name="Tutor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4a82c783-8d54-48a1-a4c3-d08b19f72390" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="71953086-8aa6-4a50-84fe-356e18a1d486" name="Reschedule seminar" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b47f3381-72a3-408b-99f9-7313d8bd1b00" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="cd5ab046-4024-4d36-a5b9-4d8f1f142302" />
+          </association>
+          <association Id="b5db3f79-965d-4898-a122-23757282df4c" isDerived="false" sourceEndRoleName="Tutor" targetEndRoleName="Log in" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="24b9b36e-9b37-4dbe-a6c3-7cd8ed9f4b4d" LastKnownName="Log in" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="56e8c03c-bf63-42d3-a343-84e3c069dfe9" name="Tutor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="92029867-8346-4ad8-9a48-ee3315f4d964" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4f68e31d-5983-436f-b363-df6588311cf8" name="Log in" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2ff625b0-3f34-414f-961a-f7a66b7d3e0b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a3633ff7-6b8f-4cc1-981c-1271a798e674" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="cbb41262-a8c8-49fb-beac-b5dde009fb8a" name="Registrar" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="53fd4126-c4ae-479e-ade7-44a9c442de9f" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0e1a8f31-bcf7-4176-93f5-2ae4174c375f" name="Swipe NFC tag" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c4245d2c-28e5-46e6-8dca-b360b90db4b4" />
+        <subjects>
+          <subsystemMoniker Id="57f31411-4357-439b-8298-4500710a3415" LastKnownName="Mobile Application" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="61b73951-4feb-4932-99b3-495172ebfb89" name="CourseLeader" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="661e6bfc-d37a-495e-86a7-f4db0cdf7ab3" />
+        <targetEnds>
+          <association Id="54c82639-ba3b-4800-a9c0-6b85ae340955" isDerived="false" sourceEndRoleName="CourseLeader" targetEndRoleName="Group Allocation" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6f672b17-fa90-4222-9936-6d766b6723ba" LastKnownName="Group Allocation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="247ddea2-9829-40f9-a3d9-20d80e2ca746" name="CourseLeader" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6c0debc5-0956-4fe1-a2d4-725f88e1cf4c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4dedd4d5-9d08-42bf-81df-74ec776e36e9" name="Group Allocation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="365601b5-5b57-45ea-a502-2b3a1c165cfb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="443e9a44-e8e6-455f-b6d3-889a2b88042b" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="57f31411-4357-439b-8298-4500710a3415" name="Mobile Application" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <ownedCommentsInternal>
+          <comment Id="1bfdfc94-c209-49b0-ad2b-aeea70b834de">
+            <elementDefinition Id="99acee67-6fc1-4a88-a630-c04f8134dfc7" />
+            <body>NFC tag contains ID of the Student</body>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="af4c9d61-59f1-4831-b707-e042b09b209b" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="968fd36d-7c83-402f-9882-6ec1114aab2b" name="Check attendance" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="63cb0352-fe50-4dc6-bbb8-f3bd38a73f81" />
+        <additions>
+          <include Id="4885b2cc-c34b-4e21-81dd-27b911f523e1">
+            <useCaseMoniker Id="0441953d-8313-46d8-a2d9-6bebd8064df4" LastKnownName="Turn NFC on" />
+            <elementDefinition Id="23326251-6a5c-4360-9392-78e5d7d77dec" />
+          </include>
+          <include Id="c4644bd1-6bdc-4753-b338-a0033730a2fa">
+            <useCaseMoniker Id="f7ed4148-48a9-4bce-9130-de0255d9190f" LastKnownName="Compare total number" />
+            <elementDefinition Id="077e76a1-dd16-4f27-a0fe-44f7a09e2816" />
+          </include>
+          <include Id="ccc580df-a777-4a0d-891f-0f043bb666ce">
+            <useCaseMoniker Id="0067f04f-f2fd-4260-932f-3d163d1dd7b9" LastKnownName="Submit data to server" />
+            <elementDefinition Id="ae311bc9-5cc5-4169-ba86-404078b02f8f" />
+          </include>
+          <include Id="e62e6af4-4dc6-40b9-845a-356ec3445a95">
+            <useCaseMoniker Id="0462a7e9-c36c-4846-9630-d7f9f88f4303" LastKnownName="Enter student details manually" />
+            <elementDefinition Id="1d8f7d8d-4038-45f9-a66a-7ee2ca8ca02d" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="57f31411-4357-439b-8298-4500710a3415" LastKnownName="Mobile Application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="0441953d-8313-46d8-a2d9-6bebd8064df4" name="Turn NFC on" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5ae1fa18-a7cb-418c-9297-6cdd07da36a1" />
+        <subjects>
+          <subsystemMoniker Id="57f31411-4357-439b-8298-4500710a3415" LastKnownName="Mobile Application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="f7ed4148-48a9-4bce-9130-de0255d9190f" name="Compare total number" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="17cab0b6-484b-4586-b866-df7434186b07" />
+        <subjects>
+          <subsystemMoniker Id="57f31411-4357-439b-8298-4500710a3415" LastKnownName="Mobile Application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="0067f04f-f2fd-4260-932f-3d163d1dd7b9" name="Submit data to server" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4346af4e-3d69-4930-ac07-0efd259fe331" />
+        <subjects>
+          <subsystemMoniker Id="57f31411-4357-439b-8298-4500710a3415" LastKnownName="Mobile Application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="e8b8371e-0dc0-4379-84ad-d5609e4471ce" name="Reschedule seminar" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5f83096b-562c-4403-85af-dca9db177b58" />
+        <subjects>
+          <subsystemMoniker Id="57f31411-4357-439b-8298-4500710a3415" LastKnownName="Mobile Application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="24b9b36e-9b37-4dbe-a6c3-7cd8ed9f4b4d" name="Log in" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7c69c088-9284-421c-8391-3f23e994ed84" />
+        <subjects>
+          <subsystemMoniker Id="57f31411-4357-439b-8298-4500710a3415" LastKnownName="Mobile Application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="c210e661-0874-4035-b33e-336d8caca1b5" name="Web application" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5be76e2d-7f00-4f27-a556-43dacb8bfe25" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="6f672b17-fa90-4222-9936-6d766b6723ba" name="Group Allocation" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ad5113fb-afa0-4703-ac81-f4530f21c4ed" />
+        <additions>
+          <include Id="131fcc6c-a53d-4b61-b1e9-3c48827cd6b9">
+            <useCaseMoniker Id="690dfd18-d1f6-4450-aeea-2da1a7214c01" LastKnownName="Create new group" />
+            <elementDefinition Id="c5200bcc-5364-4357-8774-bcc885eceffc" />
+          </include>
+          <include Id="300ce19f-6430-4bbd-a61e-9d1a663049de">
+            <useCaseMoniker Id="8e4ff074-4678-4a8f-bc3f-74e57b96ea51" LastKnownName="Manage group students" />
+            <elementDefinition Id="07423b39-f246-4ec7-b3a5-446b5bc0ca42" />
+          </include>
+          <include Id="b62231d8-2452-4895-a29d-672ac4d3d675">
+            <useCaseMoniker Id="582c3a88-79be-4069-b6dc-702a9b731749" LastKnownName="Edit group details" />
+            <elementDefinition Id="b1d49d4a-124a-4a6b-bee7-ba21bf9f80f6" />
+          </include>
+          <include Id="0c75d0a6-2e6c-45f7-b27d-1441635e2da7">
+            <useCaseMoniker Id="a74eba3c-2e21-4df4-b5c5-87f452d69665" LastKnownName="Delete group" />
+            <elementDefinition Id="b46de6be-7b5d-4136-92c9-5e5fdd743726" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="690dfd18-d1f6-4450-aeea-2da1a7214c01" name="Create new group" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1f03f680-3ac6-4b99-882a-4e09fcb11dd7" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="8e4ff074-4678-4a8f-bc3f-74e57b96ea51" name="Manage group students" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5a914d1f-1277-4388-b9b2-abea174795ea" />
+        <additions>
+          <include Id="285d58d0-7cf3-49c4-983c-60a0595682e9">
+            <useCaseMoniker Id="cdf4cc36-1249-47e0-9843-4df6014dd25a" LastKnownName="Enter module combinations" />
+            <elementDefinition Id="f4e62205-9a40-4d00-a880-54e62594f7c0" />
+          </include>
+          <include Id="9cdd82b7-b2ac-4faf-bb13-f5971afa9883">
+            <useCaseMoniker Id="e466f321-aa12-48c1-9072-6dc7e8c3e50c" LastKnownName="Search for registered students" />
+            <elementDefinition Id="093ce1ab-c55c-4ce7-a550-d157173ceaa3" />
+          </include>
+          <include Id="52ada95b-21fd-42c4-9e97-4cd703d4c53e">
+            <useCaseMoniker Id="3cae052c-aba6-450a-9941-3cc740f3f0be" LastKnownName="Save the list of group students" />
+            <elementDefinition Id="ed82ece0-dd90-49dd-ab83-88bca1346758" />
+          </include>
+          <include Id="8c58fa4b-19f9-4927-a078-e47bf528d9db">
+            <useCaseMoniker Id="dd81d4e8-9d6c-4503-9c22-73ca75a059e3" LastKnownName="Edit the list" />
+            <elementDefinition Id="ef543b9c-9ade-411a-b0c7-6e7277cc6728" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="cdf4cc36-1249-47e0-9843-4df6014dd25a" name="Enter module combinations" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8f114a91-4000-44da-b881-ea71073b34ef" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="3cae052c-aba6-450a-9941-3cc740f3f0be" name="Save the list of group students" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b96ef15a-36d1-4612-9999-92055a249e7a" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="582c3a88-79be-4069-b6dc-702a9b731749" name="Edit group details" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3d634a0b-f280-4354-b2c7-b06638f28502" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="dd81d4e8-9d6c-4503-9c22-73ca75a059e3" name="Edit the list" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8ba401d8-97f5-4c84-90bd-d9ddce81bbc8" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="e466f321-aa12-48c1-9072-6dc7e8c3e50c" name="Search for registered students" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e76e8cd1-9df4-4c34-8162-6ea69d4f6712" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <actor Id="83c2ec1e-a635-46e1-8620-81ac15d46bea" name="Dean's Officer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cb13fa94-668e-46cf-91a1-1fa6a1e055ea" />
+        <targetEnds>
+          <association Id="3fc91c84-0f1b-4af7-8f86-42481491430d" isDerived="false" sourceEndRoleName="Dean's Officer" targetEndRoleName="Timetabling" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d63398e0-977f-4289-b513-ed46a39072fc" LastKnownName="Timetabling" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="03ddaba9-186d-4f73-b980-d655c565c8d6" name="Dean's Officer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="98ccf781-97d6-4a49-82dc-666601e2b5f8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0442ebd1-0a3b-44b7-84ce-3a5f4d3fd5f8" name="Timetabling" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="44f5ec70-7017-45e0-89d2-467243878e00" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="477b363f-82d5-48ab-8b24-d225dfb210c1" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="d63398e0-977f-4289-b513-ed46a39072fc" name="Timetabling" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="482509cf-3e31-47d0-b83b-ac0b3d048531" />
+        <additions>
+          <include Id="fec084fd-f881-43c6-827d-6846c37dc609">
+            <useCaseMoniker Id="2cf45d4b-796f-4f90-b873-aaf7993db076" LastKnownName="Search for specific group" />
+            <elementDefinition Id="9c679662-ff74-48d9-8f62-c962039d28a5" />
+          </include>
+          <include Id="99725c3f-e264-47a3-9687-1f858420d098">
+            <useCaseMoniker Id="b2122bb6-40b3-4cc7-b0e0-e6f04d081d5a" LastKnownName="Add seminar records" />
+            <elementDefinition Id="e2a97594-1029-4abb-a9ed-0eca843d2297" />
+          </include>
+          <include Id="3af59fed-6622-4f5b-975f-5d26f13b93c8">
+            <useCaseMoniker Id="188d28ef-4c40-46b9-850b-d222010b844e" LastKnownName="Edit seminar records" />
+            <elementDefinition Id="6105da1c-82b1-4adf-8cd8-a5dbcaf1eb21" />
+          </include>
+          <include Id="cf563def-a696-4f3d-a610-405cf510ce76">
+            <useCaseMoniker Id="16bace20-4ec4-47ad-9635-93051ec8f3a6" LastKnownName="Delete seminar records" />
+            <elementDefinition Id="07a65c01-a3c5-470c-87fb-528e7f01501a" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="2cf45d4b-796f-4f90-b873-aaf7993db076" name="Search for specific group" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8987851c-cb1a-4104-b391-d0febb72ef5c" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="b2122bb6-40b3-4cc7-b0e0-e6f04d081d5a" name="Add seminar records" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7e7eb41f-158f-416b-ae5a-251e480b3c72" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="188d28ef-4c40-46b9-850b-d222010b844e" name="Edit seminar records" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="52c70aa3-9251-4efb-81a2-069d7c8cb4ee" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <actor Id="00d75fdb-dbbe-426a-b7ee-afe5d8fbc519" name="Adminstrator" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1cafdbf6-90ae-4f4c-a3e1-805254321d3b" />
+        <targetEnds>
+          <association Id="4e697c98-26f1-4b9c-b473-c6c83b1c5689" isDerived="false" sourceEndRoleName="Registrar's Officer" targetEndRoleName="Reporting" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="da4c9913-ac7d-4bee-bc56-b02a8dd13f70" LastKnownName="Managing application users" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="069930ed-88f8-4885-a579-9e6097ef424c" name="Registrar's Officer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e355f786-a266-41a8-949d-8bc9cd1ba1b8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="683ae64e-1d87-42cc-974a-681c49bb275d" name="Reporting" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="65bd5500-41f9-4697-ac09-fcac3561c89c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="67b7ad05-b1f5-472b-8b12-10f9a663a496" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="da4c9913-ac7d-4bee-bc56-b02a8dd13f70" name="Managing application users" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="665e18d5-f797-4836-ad04-70717fab804a" />
+        <additions>
+          <include Id="ca1681a8-3524-475a-b230-eb6181eee0b9">
+            <useCaseMoniker Id="6fb27625-f10b-4486-8bd1-c9cd74a96b48" LastKnownName="Creating, Updating, Deleting User profiles" />
+            <elementDefinition Id="990901c9-373a-45b1-ade2-40107c12bbca" />
+          </include>
+          <include Id="00d00dd5-3c2f-4284-a4ed-1bca8c4be3d3">
+            <useCaseMoniker Id="4df88179-719f-4be0-add3-626d51fab1ff" LastKnownName="Assigning and revoking roles " />
+            <elementDefinition Id="c615914a-ad3b-4d19-975c-a17b964a0c8d" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="6fb27625-f10b-4486-8bd1-c9cd74a96b48" name="Creating, Updating, Deleting User profiles" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cee1c49c-99cc-4a18-a0ff-787b235d4edc" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="4df88179-719f-4be0-add3-626d51fab1ff" name="Assigning and revoking roles " isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d846b4fd-2977-4eb5-91b5-5322def35382" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="a74eba3c-2e21-4df4-b5c5-87f452d69665" name="Delete group" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="057e1e6d-b61b-445b-b941-17a6748c0652" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="16bace20-4ec4-47ad-9635-93051ec8f3a6" name="Delete seminar records" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e4468fbc-3fbf-45b0-b29d-e46baf5e1ae2" />
+        <subjects>
+          <subsystemMoniker Id="c210e661-0874-4035-b33e-336d8caca1b5" LastKnownName="Web application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="0462a7e9-c36c-4846-9630-d7f9f88f4303" name="Enter student details manually" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8f0802f3-d066-43d3-a403-bf2a6a349f3c" />
+        <subjects>
+          <subsystemMoniker Id="57f31411-4357-439b-8298-4500710a3415" LastKnownName="Mobile Application" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="cfbd9c92-f038-4d98-ae58-96861c0717bd" name="ModelingProject1">
+    <elementDefinition Id="a01872c9-e179-4ddc-bc68-0ddce4912633" />
+    <profileInstances>
+      <packageHasProfileInstances Id="5e3e148b-9412-44d3-a99f-9bed6778200d">
+        <profileInstance Id="1d59d7f1-eae6-49b5-9b76-c93c2fcf92ec" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="691a58fa-acb3-4386-baf4-e51b7383d00b">
+        <profileInstance Id="4cc9745f-c2c1-4036-9fb4-f97eb19f8f2e" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

@@ -1,0 +1,72 @@
+﻿@using (Html.BeginForm())
+{
+   
+     if (ViewBag.module1==null && ViewBag.module2==null && ViewBag.module3==null && ViewBag.module4==null)
+    {   <h3>Search for new students </h3>
+    <p>Please, specify the combination of modules on which you want to perform search </p>
+    <div class="row">
+        <div class="form-group col-md-2">
+            @Html.DropDownList("module1", new SelectList(ViewBag.modules), "Module 1", htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-2 col-md-offset-0">
+            @Html.DropDownList("module2", new SelectList(ViewBag.modules), "Module 2", htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-2 col-md-offset-0">
+            @Html.DropDownList("module3", new SelectList(ViewBag.modules), "Module 3", htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-2 col-md-offset-0">
+            @Html.DropDownList("module4", new SelectList(ViewBag.modules), "Module 4", htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-2 col-md-offset-0">
+            <input type="submit" value="Show registered students" class="btn btn-primary" />
+        </div>
+
+    </div>
+
+    @* Search results *@
+    <h5>The following students are registered for specified modules:</h5>
+    <table class="table table-hover">
+        <tr>
+
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Modules</th>
+            <th></th>
+        </tr>
+
+
+        @if (ViewBag.searchResults != null) {
+        foreach (var student in ViewBag.searchResults)
+            {
+            <tr>
+                <td>
+                    @student.Name
+                </td>
+                <td>
+                    @student.Surname
+                </td>
+                <td>
+                    @* @Html.DisplayFor(s => s.Modules)*@
+                </td>
+                <td>
+                    @Html.ActionLink("Add student", "ManageStudents", new { studentID= student.ID,
+                                                                                //searchResults = ViewBag.searchResults,
+                                                                                //id = ViewBag.group.ID,
+                                                                                ////module1 =ViewBag.module1,
+                                                                                ////module2 = ViewBag.module2,
+                                                                                ////module3 = ViewBag.module3,
+                                                                                ////module4 = ViewBag.module4,
+                                                                                //groupStudents = ViewBag.groupStudents,
+                                                                                action = "Add to group"})
+                </td>
+
+            </tr>
+            }
+       }
+
+
+    </table>
+
+}
+}
+

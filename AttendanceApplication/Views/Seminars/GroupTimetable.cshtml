@@ -1,0 +1,78 @@
+﻿@model IEnumerable<AttendanceApplication.Models.Seminar>
+@{
+    ViewBag.Title = "GroupTimetable";
+}
+
+<h2>GroupTimetable</h2>
+<p>
+   
+    @Html.ActionLink("New Seminar", "Create", new { groupId = ViewBag.groupID })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Group
+        </th>
+        <th>
+            Module name
+        </th>
+        <th>
+            Academic year and period
+        </th>
+        <th>
+            Tutor
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Building)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room)
+        </th>
+        <th>
+            Day of week
+        </th>
+        <th>
+            Start time
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Group.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Module.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time.AcademicYear) @Html.DisplayFor(modelItem => item.Time.Period)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tutor.Name) @Html.DisplayFor(modelItem => item.Tutor.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Building)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DayOfWeek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+

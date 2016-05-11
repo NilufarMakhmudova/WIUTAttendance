@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="a6351ef6-6c91-42de-9226-94fb79833604" name="UMLGroupAllocationActivity" linkedPackageId="16f050f1-9919-43d0-ab26-b0d6d6e11ae8" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="dacbad52-56cd-4b59-b5c7-8b1d3c2bc09f" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="810a0662-660c-4080-bf78-b9b6814fff05" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="07cff01f-65e6-44f9-b93d-4b11b7cb14d8">
+          <propertyInstance Id="f6f31b2c-c030-45ea-85f6-04c82196b156" name="BaseName">
+            <elementDefinition Id="956eef97-e0f0-4448-863a-4e738223f0b3" />
+          </propertyInstance>
+          <elementDefinition Id="53aea0fa-7bdb-4dde-baef-48acabd6516f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="49347b8b-3787-4404-aaeb-9b7d4914dad2">
+          <propertyInstance Id="1ebef22e-c8b4-42b2-842a-5ad7f25044d9" name="ClrAttributes">
+            <elementDefinition Id="d23d7b6c-e3be-476c-9a76-76611a109e97" />
+          </propertyInstance>
+          <elementDefinition Id="66912139-090c-4923-8cf6-67755f29247a" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="2407b475-de21-47a7-8818-075a700ad10b">
+          <propertyInstance Id="25c3f6a5-c91e-45d4-85b0-7fb549f01835" name="Usings">
+            <elementDefinition Id="67b5a87f-441a-4400-8d98-10f919f9ea4e" />
+          </propertyInstance>
+          <elementDefinition Id="798a021c-3dbd-4125-9af4-bfb593a3e265" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="dfcaa014-51e5-41ed-a4c7-fdf3c3cabb17" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="7915c44e-edb7-41d7-8453-b7aea4f9510a" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="6340a7e8-b8e7-4377-8471-3d9b642acd81">
+          <propertyInstance Id="9f4c1c3b-ea91-42a9-81aa-eb3feed3b51a" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="c1e47259-a026-4c20-8bab-1c5d2c1ecf14" />
+          </propertyInstance>
+          <elementDefinition Id="73988723-e2e5-4912-8b46-b8852ad19a46" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="b33f0cf8-1175-456e-9fa5-e6ae2b9d0337">
+          <propertyInstance Id="75878317-b5a7-4f09-860c-f05bb10526c1" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="9ae03f35-c072-4638-95e0-74f9c0d355ac" />
+          </propertyInstance>
+          <elementDefinition Id="d664df47-1469-403b-bb9c-07dc368308c2" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="15fc3d63-9d97-48ac-8818-2b1de748fbcc">
+          <propertyInstance Id="7080d9e7-ab5a-4fca-a304-cc50c8efabe1" name="ProjectPath" value="ClassTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|EnumTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|InterfaceTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|StructTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj">
+            <elementDefinition Id="29512fb2-06aa-4161-ba32-9a0a25f3b584" />
+          </propertyInstance>
+          <elementDefinition Id="9a567b25-6520-4187-abe6-3aec99465019" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="cc7d3421-0a78-4146-be93-ab87d5c0e01f">
+          <propertyInstance Id="ba2f1b9f-9390-4ca5-ac71-f4fb91f2b23f" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="b029e853-5c1c-4eac-9624-00f55634e324" />
+          </propertyInstance>
+          <elementDefinition Id="d6f3e012-7849-466e-b3a9-df32164b3988" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="ec8bd514-469b-4b66-852f-60cd0deace7f">
+          <propertyInstance Id="2d2ef25d-0adc-4e9a-a79b-a180b0fbc240" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="f2cf7934-6471-4974-8765-dc6c654082d4" />
+          </propertyInstance>
+          <elementDefinition Id="4f366be2-a1a0-4eec-aabf-3bcd81705a64" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="d29e2115-c4f9-491a-8bdf-e4b7c0b429f8">
+          <propertyInstance Id="ceef5a3e-7ca5-40f5-aab7-680d3ddb6e96" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="f88465a6-5885-44bb-9bec-f5025c8562e2" />
+          </propertyInstance>
+          <elementDefinition Id="499d87a2-1aa1-44fc-9b04-17703cc02f4e" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="3596b7de-c9de-49ca-be7e-ded51466aafd">
+          <propertyInstance Id="00423de1-d5a0-4e44-8c5e-1d94adf35493" name="Parameters">
+            <elementDefinition Id="dd6f9c23-5788-4b23-a349-266c3a0e398c" />
+          </propertyInstance>
+          <elementDefinition Id="fa42ed77-e0b1-4c80-a9c4-4e038022afb0" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="f8b0ccc8-07bf-4a5e-9f17-bda8ec45ddb0">
+      <profileInstance Id="f2fab9af-1d2d-49b1-a70b-fd1d50f28cba" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="75ca1008-d4d7-4a89-b0c7-b01c72ee289e">
+      <profileInstance Id="005d1bc5-95d3-43c3-94bd-fdec4264666b" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="9793899a-4f84-426c-9108-41ce04190928">
+      <profileInstance Id="a4a7c81e-e890-4386-9b71-baff38d770dc" name="CSharpProfile">
+        <elementDefinition Id="b55fe82a-8573-49b7-9b5f-f0df015870aa" />
+      </profileInstance>
+      <elementDefinition Id="2ede2d84-6a2f-43fd-934b-7ca974a19853" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="8459e5a8-0a17-428d-a6f0-d90ba9928ffb">
+      <profileInstance Id="ae8a1ccf-17db-486d-8565-acb9a96d5ebf" name="TextTemplateBindings">
+        <elementDefinition Id="30d4b9dd-28ff-4406-b5a1-e290461ec074" />
+      </profileInstance>
+      <elementDefinition Id="2b4da7ca-041d-4ec7-b82a-b73302241fc2" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="35c69c84-e22a-46c8-9925-654c071dc8eb" name="UMLGroupAllocationActivity" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="a84ea867-5265-4b9d-b0ee-3532a22f0170" />
+        <nodes>
+          <opaqueAction Id="236e7216-1b13-4580-9d6e-98e35e25ae4f" name="Create new group" isLeaf="false">
+            <elementDefinition Id="0a84f241-f193-4253-829c-49d6b7bab96c" />
+            <flowNodeTargets>
+              <controlFlow Id="89784389-8175-4ca9-8801-de6f86a86627" isLeaf="false">
+                <mergeNodeMoniker Id="1acd0612-0503-4e5c-b470-3c383ebf18d0" LastKnownName="Merge1" />
+                <elementDefinition Id="dae09bcd-e64c-4150-8c1f-7404f2700298" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="1d5d393d-d959-4800-adf5-dea1ca89ef25" name="Specify module combination " isLeaf="false">
+            <elementDefinition Id="ec8f6347-d4b1-4f5a-89f6-63336d7ae20a" />
+            <flowNodeTargets>
+              <controlFlow Id="cc20dff5-bc49-43ca-8432-7d4e399179f5" isLeaf="false">
+                <opaqueActionMoniker Id="60694c9e-58dd-410f-832e-22004a6aaa30" LastKnownName="Search for registered students" />
+                <elementDefinition Id="b3fcb05b-74d8-4204-8499-da5dbeb11116" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="b33dd81a-c2a0-4736-96fa-5097b4b9652a" name="Enter academic year and period" isLeaf="false">
+            <elementDefinition Id="b2497d49-c9ea-41cf-82d2-e10490acf9db" />
+            <flowNodeTargets>
+              <controlFlow Id="ca021589-c014-443d-b76d-16293a2b9e69" isLeaf="false">
+                <opaqueActionMoniker Id="9daf9afb-780d-4d44-ae26-1c472a4272ce" LastKnownName="Select course and level" />
+                <elementDefinition Id="343dce10-8733-4c38-8176-a9aaeee834fd" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="9daf9afb-780d-4d44-ae26-1c472a4272ce" name="Select course and level" isLeaf="false">
+            <elementDefinition Id="f1bac312-7683-4cc2-93e5-9b50f173c8d0" />
+            <flowNodeTargets>
+              <controlFlow Id="83ad5f5f-c683-4849-aa28-256e44d2c619" isLeaf="false">
+                <opaqueActionMoniker Id="236e7216-1b13-4580-9d6e-98e35e25ae4f" LastKnownName="Create new group" />
+                <elementDefinition Id="d2d881de-c7c6-4dd9-85e9-79aacfc46499" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="60694c9e-58dd-410f-832e-22004a6aaa30" name="Search for registered students" isLeaf="false">
+            <elementDefinition Id="bc95a63f-f0dd-48b2-8edb-81b354b608b9" />
+            <flowNodeTargets>
+              <controlFlow Id="c8601ac9-ebed-40f9-99db-1d3136c8f6d3" isLeaf="false">
+                <decisionNodeMoniker Id="bd3cefa9-c7a9-432b-ab83-615b08ee6c99" LastKnownName="Decision1" />
+                <elementDefinition Id="d05961ce-5e87-4fa8-8ae0-dcfa0c1a5f28" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="fba1ab09-3465-49c4-a077-f3f709acb770" name="Add student to the group" isLeaf="false">
+            <elementDefinition Id="466d144e-46df-497c-a3a1-abb6c5b5bcdb" />
+            <flowNodeTargets>
+              <controlFlow Id="a6d64048-7da7-4c57-8402-1e62123efeea" isLeaf="false">
+                <decisionNodeMoniker Id="72c054f0-fc8c-4d96-be90-973a5fc6e023" LastKnownName="Decision2" />
+                <elementDefinition Id="45cccbe6-c62e-423d-ae21-28f06ece1b77" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="7956a496-0824-4562-9fb8-241834151fd8" name="Delete students from the group" isLeaf="false">
+            <elementDefinition Id="4606625b-ee15-4547-8e5b-6056f63108ae" />
+          </opaqueAction>
+          <opaqueAction Id="bee3fa61-5f43-422f-9495-d07a6d527237" name="Save changes" isLeaf="false">
+            <elementDefinition Id="0abcb52b-6e74-47d8-978f-7a54210b602e" />
+            <flowNodeTargets>
+              <controlFlow Id="3cf072d8-6924-496a-a0c8-9c1afaf5c967" isLeaf="false">
+                <activityFinalNodeMoniker Id="33a4c8b5-4ac1-498a-bd12-42d7b45e1560" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="5214a164-211f-44d8-8f67-5c0141bd7a6f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <initialNode Id="18f531e8-e698-4a3d-9800-ea07dab99d35" name="Initial1" isLeaf="false">
+            <elementDefinition Id="cc2e7840-db3c-46cf-bc6c-00d01671d547" />
+            <flowNodeTargets>
+              <controlFlow Id="f45deaa7-c1ff-4d65-842c-0ccae2c7bea4" isLeaf="false">
+                <opaqueActionMoniker Id="b33dd81a-c2a0-4736-96fa-5097b4b9652a" LastKnownName="Enter academic year and period" />
+                <elementDefinition Id="0a57d971-2066-4317-ad23-897adc7309c4" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <decisionNode Id="bd3cefa9-c7a9-432b-ab83-615b08ee6c99" name="Decision1" isLeaf="false">
+            <elementDefinition Id="19e0d0ce-f7f1-40c9-9c67-a65cd97f992b" />
+            <flowNodeTargets>
+              <controlFlow Id="4606a041-3591-4940-ac36-ba3530c6fa0f" guard="Student belongs to the group" isLeaf="false">
+                <opaqueActionMoniker Id="fba1ab09-3465-49c4-a077-f3f709acb770" LastKnownName="Add student to the group" />
+                <elementDefinition Id="2e229e1f-11a0-480f-9339-91a64dd348f7" />
+              </controlFlow>
+              <controlFlow Id="7ce51f53-3c5e-46eb-b048-0c2a661f68f3" guard="Search for other module combinations" isLeaf="false">
+                <mergeNodeMoniker Id="1acd0612-0503-4e5c-b470-3c383ebf18d0" LastKnownName="Merge1" />
+                <elementDefinition Id="59aa5b53-8408-42ee-a871-8e815c9a54d4" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <mergeNode Id="1acd0612-0503-4e5c-b470-3c383ebf18d0" name="Merge1" isLeaf="false">
+            <elementDefinition Id="6e2823a8-1771-4211-b0fc-a40231def914" />
+            <flowNodeTargets>
+              <controlFlow Id="ef343e8c-27fe-4bdc-8575-30d91371bb2e" isLeaf="false">
+                <opaqueActionMoniker Id="1d5d393d-d959-4800-adf5-dea1ca89ef25" LastKnownName="Specify module combination " />
+                <elementDefinition Id="361e9d89-edcf-4d3c-b4f6-666cad8f8770" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <decisionNode Id="72c054f0-fc8c-4d96-be90-973a5fc6e023" name="Decision2" isLeaf="false">
+            <elementDefinition Id="e184e146-cd56-4b79-96c4-2780928ba1f3" />
+            <flowNodeTargets>
+              <controlFlow Id="572706e0-4e4c-462d-a423-6a9e52f17539" guard="Group is formed" isLeaf="false">
+                <opaqueActionMoniker Id="bee3fa61-5f43-422f-9495-d07a6d527237" LastKnownName="Save changes" />
+                <elementDefinition Id="cd74a034-9365-451a-8cb6-f15800ad7b7c" />
+              </controlFlow>
+              <controlFlow Id="c4ad7e01-a4ae-4457-817b-767f9598cd71" guard="Some students should be removed" isLeaf="false">
+                <opaqueActionMoniker Id="7956a496-0824-4562-9fb8-241834151fd8" LastKnownName="Delete students from the group" />
+                <elementDefinition Id="7a87afc8-e944-4830-bc49-4deac8eaf1da" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <activityFinalNode Id="33a4c8b5-4ac1-498a-bd12-42d7b45e1560" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="63d7fc71-8eb4-4cd0-b795-36504b7ee6c5" />
+          </activityFinalNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="16f050f1-9919-43d0-ab26-b0d6d6e11ae8" name="ModelingProject1">
+    <elementDefinition Id="a01872c9-e179-4ddc-bc68-0ddce4912633" />
+  </package>
+</activityRootModel>

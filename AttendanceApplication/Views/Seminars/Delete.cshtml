@@ -1,0 +1,88 @@
+﻿@model AttendanceApplication.Models.Seminar
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Seminar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DayOfWeek)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DayOfWeek)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Building)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Building)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Room)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Module.SRSCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Module.SRSCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Time.AcademicYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time.AcademicYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tutor.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tutor.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

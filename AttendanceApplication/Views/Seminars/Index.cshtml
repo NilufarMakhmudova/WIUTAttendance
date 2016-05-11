@@ -1,0 +1,79 @@
+﻿@model IEnumerable<AttendanceApplication.Models.Group>
+@{
+    ViewBag.Title = "Timetabling";
+}
+
+<h2>Timetabling</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-horizontal">
+        <h3> Select the group you want to work with</h3>
+
+
+        <div class="row">
+            <div class="col-md-3 ">
+                @Html.DropDownList("group", new SelectList(ViewBag.Group), "Name", htmlAttributes: new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-3 col-md-offset-0">
+                @Html.DropDownList("time", new SelectList(ViewBag.Time), "Academic year and period", htmlAttributes: new { @class = "form-control" })
+            </div>
+            
+            <div>
+                <input type="submit" value="Filter" class=" btn btn-primary col-md-3 col-md-offset-0" />
+            </div>
+        </div>
+
+    </div>
+}
+<hr>
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.ActionLink("Group name", "Index", new { sortOrder = ViewBag.GroupNameSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Level", "Index", new { sortOrder = ViewBag.LevelSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Academic year", "Index", new { sortOrder = ViewBag.YearSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Period", "Index", new { sortOrder = ViewBag.PeriodSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Course name", "Index", new { sortOrder = ViewBag.CourseNameSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time.AcademicYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time.Period)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Name)
+            </td>
+            <td>
+                
+                @Html.ActionLink("Manage timetable", "GroupTimetable", new { id = item.ID }) 
+                
+            </td>
+        </tr>
+    }
+
+</table>
